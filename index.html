@@ -1,0 +1,641 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://akovachev.github.io/automaton-site/">
+      
+      
+      <link rel="shortcut icon" href="img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
+    
+    
+      
+        <title>AUTOMATON</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.358818c7.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f0267088.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play:300,400,400i,700%7CAnonymous+Pro&display=fallback">
+        <style>body,input{font-family:"Play",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Anonymous Pro",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="css/progress.css">
+    
+      <link rel="stylesheet" href="css/chat.css">
+    
+      <link rel="stylesheet" href="css/mermaid.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-115946540-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="red">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#welcome-to-automaton" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://akovachev.github.io/automaton-site/" title="AUTOMATON" class="md-header-nav__button md-logo" aria-label="AUTOMATON">
+      
+  <img src="img/A.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            AUTOMATON
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/automaton-network" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    automaton.network
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="." class="md-tabs__link md-tabs__link--active">
+        Home
+      </a>
+    
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://akovachev.github.io/automaton-site/" title="AUTOMATON" class="md-nav__button md-logo" aria-label="AUTOMATON">
+      
+  <img src="img/A.svg" alt="logo">
+
+    </a>
+    AUTOMATON
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/automaton-network" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    automaton.network
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Home
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="." class="md-nav__link md-nav__link--active">
+      Home
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#our-vision" class="md-nav__link">
+    Our Vision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaton-core" class="md-nav__link">
+    Automaton Core
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaton-playground" class="md-nav__link">
+    Automaton Playground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaton-network" class="md-nav__link">
+    Automaton Network
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems-automaton-is-solving" class="md-nav__link">
+    Problems Automaton is solving
+  </a>
+  
+    <nav class="md-nav" aria-label="Problems Automaton is solving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rapid-research-development" class="md-nav__link">
+    Rapid Research &amp; Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usability" class="md-nav__link">
+    Usability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decentralized-collaboration-governance" class="md-nav__link">
+    Decentralized Collaboration &amp; Governance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    Scalability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    Interoperability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innovations" class="md-nav__link">
+    Innovations
+  </a>
+  
+    <nav class="md-nav" aria-label="Innovations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smart-protocols" class="md-nav__link">
+    Smart Protocols
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#king-of-the-hill" class="md-nav__link">
+    King of the Hill
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#our-vision" class="md-nav__link">
+    Our Vision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaton-core" class="md-nav__link">
+    Automaton Core
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaton-playground" class="md-nav__link">
+    Automaton Playground
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automaton-network" class="md-nav__link">
+    Automaton Network
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems-automaton-is-solving" class="md-nav__link">
+    Problems Automaton is solving
+  </a>
+  
+    <nav class="md-nav" aria-label="Problems Automaton is solving">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rapid-research-development" class="md-nav__link">
+    Rapid Research &amp; Development
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usability" class="md-nav__link">
+    Usability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decentralized-collaboration-governance" class="md-nav__link">
+    Decentralized Collaboration &amp; Governance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability" class="md-nav__link">
+    Scalability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperability" class="md-nav__link">
+    Interoperability
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#innovations" class="md-nav__link">
+    Innovations
+  </a>
+  
+    <nav class="md-nav" aria-label="Innovations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smart-protocols" class="md-nav__link">
+    Smart Protocols
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#king-of-the-hill" class="md-nav__link">
+    King of the Hill
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="welcome-to-automaton">Welcome to Automaton</h1>
+<div class="admonition note">
+<p><strong>Automaton</strong> - noun <code>/ɔːˈtɒmət(ə)n/</code>
+<em>a self-operating machine, or a machine or control mechanism designed to automatically follow a predetermined sequence of operations, or respond to predetermined instructions.</em></p>
+</div>
+<p><strong>a peer-to-peer operating system</strong></p>
+<p>Automaton is a peer-to-peer operating system for running scalable decentralized applications and connecting networks through its standardized protocols.</p>
+<h2 id="our-vision">Our Vision</h2>
+<p>Automaton envisions a decentralized Internet created by the people for the people in order to freely and privately communicate, play, transact, collaborate and organize at scale.</p>
+<h2 id="automaton-core">Automaton Core</h2>
+<p><strong>The engine that runs everything</strong></p>
+<p>Provides all the basic components necessary to launch peer-to-peer nodes running custom network protocols. Components include command line interface console, simulated test network framework, cryptographic hash functions, digital signatures, secure random number generation, protocol message definitions, file storage, memory-mapped files, network, scripting, state, consensus and discovery algorithms.</p>
+<h2 id="automaton-playground">Automaton Playground</h2>
+<p><strong>A visual programming tool</strong></p>
+<p>Built on top of Automaton Core, it will provide templates for peer-to-peer network architectures and enable people to utilize the building blocks of Automaton Core to visually design and build their own solutions from scratch.</p>
+<h2 id="automaton-network">Automaton Network</h2>
+<p><strong>A self-governed peer-to-peer network of networks</strong></p>
+<p>Openly register your own custom network protocol and have it interact freely with the other registered networks while benefiting from the security of the main network.</p>
+<p>Automaton is a network of networks forming a tree structure where each network works like a side chain of its parent network. The main network layer itself consists of separate networks, which we call zones. At the root of the entire network tree is the master zone. Zones have a predefined storage capacity and validator slots. Whenever that storage capacity is exhausted, the zone’s data is split into child zones. This architecture results in fast synchronization times and exponential scalability, which are imperative for mass adoption.</p>
+<p>A key differentiating feature of the Automaton Network is the ability for people to define, register and launch their own peer-to-peer networks. This registration is done within a zone of the main network using Smart Protocols. Once a Smart Protocol is registered, it is interoperable by design, which makes it available to communicate with other protocols and applications built on top of it.</p>
+<p>In order to secure and validate the state of the network, Automaton implements a novel solution. Using a mining application based on the King of the Hill algorithm, validator candidates compete to produce a key of higher difficulty. Every validator slot in each zone has its own independent cumulative difficulty, which is increased every time it’s taken over. This can happen only with a key having higher difficulty. Once a validator slot is taken over, the previous validator is kicked out of the zone, but does not necessarily lose their validating rights. Instead, evicted validators are bumped down to validator slots in one of the children zones when  available. As the network grows, so does the difficulty of earning a validator slot. However, as the number of zones grows exponentially, so will the amount of available validator slots.</p>
+<p>It is worth noting that targeting and attacking the network is not an easy task. For attackers to gain control of a single zone, they would have to generate more keys than the whole network since its inception in order to get high enough difficulty to replace more than 50% of the slots. This would be like having to mine every single block in a proof-of-work blockchain in order to take it over. Moreover, attacking and targeting a specific zone will be even harder in practice, because whenever a miner earns a validator slot, the zone in which they can register to operate is automatically assigned by the mined key. As a result, all miners in the world compete for all the available zones and custom protocols.</p>
+<p>Automaton Network is self-governed, meaning that the parameters defining how the main network protocol operates is managed by the community itself. For example storage capacity or number of validator slots per zone could be modified through a formal proposal and voting mechanism.</p>
+<p>The network is powered by its own token, which is used to register custom network protocols, rewarding validators, and executing transactions. Parent networks are always aware of the balance held by its children. While processing transactions token balances do not need to leave a zone unless its destination is outside its entire tree.</p>
+<p><img alt="" src="img/automaton-network-hierarchy.png" /></p>
+<h2 id="problems-automaton-is-solving">Problems Automaton is solving</h2>
+<h3 id="rapid-research-development">Rapid Research &amp; Development</h3>
+<p>To accelerate innovation, researchers of distributed consensus need to be able to test and analyze their theories. However, it is currently difficult to bootstrap and launch a new peer-to-peer network protocol from scratch, as it means recruiting people to run the researcher’s software in a test network. Then each time a problem occurs, hard forks and updates need to be organized and propagated.</p>
+<p>Automaton provides a development framework and tools for participants to design, build, test and launch peer-to-peer protocols, applications and networks. With Automaton Core for example, researchers can instantly launch a simulated test network of 100,000 peer-to-peer nodes without relying on any external resources.</p>
+<h3 id="usability">Usability</h3>
+<p>Automaton will provide a standard programming interface to access any application, service or peer-to-peer network it hosts. Such standardization makes it possible for anyone to create custom add-on solutions at the application level. This creates a healthy, competitive environment in which user experience designers and developers can iterate and improve or create variations of front-end user interfaces. End users can then choose the most optimal interface to fit their needs while accessing the same underlying networks and protocols.</p>
+<p>In a nutshell Automaton fosters usability by giving developers numerous options to compete and improve core, protocol and application layers, which naturally leads to the best end results.</p>
+<h3 id="decentralized-collaboration-governance">Decentralized Collaboration &amp; Governance</h3>
+<p>Forking debates cause endless arguments, price swings, and confusion. The inconvenient truth is that most supposedly decentralized networks are actually controlled by a handful of developers. We often hear that miners are free to choose the fork they accept, but unfortunately the rest of the stakeholders have little say in the matter. Serious market manipulation can occur as a result. All of this breaks from the spirit of decentralization.</p>
+<p>Automaton introduces a novel concept, the King of the Hill algorithm, which effectively distributes authority and decision making power as it allows people to earn non-transferable voting rights through pool-resistant mining. As a result communities can achieve a fair and scalable decision making process. This empowers community participants to continuously improve projects by organizing, funding and operating them with defined budgets and milestones. The outcome is that King of the Hill algorithm enables the Automaton community to efficiently manage a, global, communal treasury, which lays the foundation for truly decentralized collaboration and governance.</p>
+<h3 id="scalability">Scalability</h3>
+<p>Achieving high scalability in peer-to-peer networks is not just about transaction throughput. You could have millions of transactions per second, but when it takes a new user one month to synchronize and validate the critical data coming from the rest of the network, the user is stuck unable to interact with the network and the problem remains unsolved. Comparatively, Automaton Network houses data in separate cryptographically verifiable zones and users sync only the data in the zones they need, without compromising the security of the entire network. As a result synchronization time and bandwidth needed are drastically reduced. A new Automaton Network user can have their node in sync and ready to transact in seconds.</p>
+<h3 id="interoperability">Interoperability</h3>
+<p>Peer-to-peer networks typically reach consensus independent of one another and can not automatically exchange information. Solving interoperability across the largest peer-to-peer networks is a top priority for Automaton, because it unlocks tremendous value. As Metcalfe’s law implies, connecting separate networks increases the value of the resulting larger network by orders of magnitude.</p>
+<p>In Automaton Network all registered protocols are interoperable by architectural design. Protocols are registered in a specific zone, which is their parent. All zones except for the master zone have parents and form a tree structure (see diagram). When a network wants to communicate with another network, it sends a message that gets routed through the shortest path between the zones until it reaches its final destination.</p>
+<p><img alt="interoperability" src="img/automaton-network-interoperability.png" /></p>
+<h2 id="innovations">Innovations</h2>
+<h3 id="smart-protocols">Smart Protocols</h3>
+<p><strong>Standardized Interoperability</strong></p>
+<p>Automaton Smart Protocols are a set of formally specified messages and coded instructions defining how peer-to-peer nodes communicate with each other and form a network. They are powered by the Automaton Core engine.</p>
+<p>Typically when peer-to-peer protocols evolve, their documentation stays behind and becomes irrelevant. However, the self-documenting nature of Automaton’s Smart Protocols allows them to serve not only as the node instructions, but accurate up-to-date developer documentation as well.</p>
+<p>Smart Protocols eliminate the need to download and install new software in order to run a peer-to-peer node and join a network. Instead all that is needed is the Smart Protocol’s formal specification. This defines the instructions which can be received and processed by the network. Instructions can be sent to the network by anyone, including nodes running other networks. As a result networks running Smart Protocols are interoperable by design.</p>
+<h3 id="king-of-the-hill">King of the Hill</h3>
+<p><strong>Pool-Resistant Consensus</strong></p>
+<p>Blockchain, considered the most secure peer-to-peer technology is being compromised due to the centralization of mining and staking pools. Automaton introduces a novel concept, King of the Hill algorithm, which is pool-resistant by design. It effectively distributes authority and decision-making power by allowing people to earn non-transferable voting rights through mining. This process results in exponentially more decision makers participating in critical events that affect the network on an ongoing basis. The earned voting rights being non-transferable makes pooling obsolete and forces decentralization by default as the individual miners have no incentive to collude.</p>
+<p>King of the Hill is what we envision to be used as the consensus mechanism securing each zone of the Automaton Network, as well as networks running Smart Protocols.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018-2020 The automaton.network Developers
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/automaton-network" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://discord.gg/G5vTVGK3NF" target="_blank" rel="noopener" title="discord.gg" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/AutomatonNews" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.7e0ee788.min.js"></script>
+      <script src="assets/javascripts/bundle.b3a72adc.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: ['navigation.tabs'],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      
+        <script src="js/Bubbles.js"></script>
+      
+        <script src="js/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
